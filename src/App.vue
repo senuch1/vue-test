@@ -7,7 +7,7 @@ export default {
 </script>
 
 <template>
-  <div>App</div>
+  <div>App2cd8n2c2n8c092</div>
 </template>
 
 <style scoped>
