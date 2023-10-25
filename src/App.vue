@@ -1,14 +1,16 @@
-<script>
-export default {
-  data: () => {
-    return {}
-  }
-}
-</script>
-
 <template>
-  <div>App</div>
+  <div id="app">
+    <ad-slider />
+  </div>
 </template>
 
-<style scoped>
-</style>  
+<script>
+import AdSlider from "./components/AdSlider.vue";
+
+export default {
+  name: "App",
+  components: {
+    AdSlider,
+  },
+};
+</script>
