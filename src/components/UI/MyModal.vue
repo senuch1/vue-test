@@ -7,10 +7,10 @@ export default {
       required: true,
       default: false,
     },
-    changeShow:{
-        type: Function,
-        required:true,
-    }
+    changeShow: {
+      type: Function,
+      required: true,
+    },
   },
   data: () => {
     return {};
@@ -19,9 +19,9 @@ export default {
 </script>
 
 <template>
-  <div class="modal" v-if="show" @click="changeShow">
-    <div class="modal-content">
-        <button @click="changeShow">zakryt</button>
+  <div class="modal" v-if="show" @click.stop="changeShow">
+    <div class="modal-content" @click.stop>
+      <button @click.stop="changeShow">Закрыть</button>
       <slot></slot>
     </div>
   </div>

@@ -1,3 +1,21 @@
+<script>
+import PostItem from "./PostItem.vue";
+export default {
+  name: "PostList",
+  components: { PostItem },
+  props: {
+    posts: {
+      type: Array,
+      required: true,
+      default: [],
+    },
+  },
+  data: () => {
+    return {};
+  },
+};
+</script>
+
 <template>
   <div>
     <h2>Список постов:</h2>
@@ -7,22 +25,7 @@
       :post="post"
       @delete-post="$emit('delete-post', post.id)"
     />
-    <!-- <div v-show="posts.length === 0">
-        <h2>Постов нет!</h2>
-    </div> -->
   </div>
 </template>
-
-<script>
-import PostItem from "./PostItem.vue";
-export default {
-  name: "PostList",
-  components: { PostItem },
-  props: ["posts"],
-  data: () => {
-    return {};
-  },
-};
-</script>
 
 <style scoped></style>

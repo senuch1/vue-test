@@ -2,37 +2,34 @@
 import axios from "axios";
 import PostForm from "./components/PostForm.vue";
 import PostList from "./components/PostList.vue";
-import MyModal from "./components/UI/MyModal.vue"
-
 
 export default {
-  components: { PostList, PostForm, MyModal},
+  components: {
+    PostForm,
+    PostList,
+  },
   data: () => {
     return {
-      posts: [
-        {
-          id: 1,
-          title: "Javascript 1",
-          body: "Description of post 1",
-        },
-        {
-          id: 2,
-          title: "Javascript 2",
-          body: "Description of post 2",
-        },
-        {
-          id: 3,
-          title: "Javascript 3",
-          body: "Description of post 3",
-        },
+      isLoading: false,
+      posts: [],
+      isShown: false,
+      selectedSort: "",
+      sortOptions: [
+        { value: "title", name: "по названию" },
+        { value: "body", name: "по описанию" },
       ],
-      title: "",
-      body: "",
-
     };
   },
+  computed: {},
+  watch: {},
+  async mounted() {
+    this.isLoading = true;
+    await this.fetchPosts();
+    console.log(1);
+    this.isLoading = false;
+  },
   methods: {
-    createPost({ body, title }) {
+    createPost({ title, body }) {
       const newPost = {
         id: Date.now(),
         title,
@@ -41,23 +38,42 @@ export default {
       this.posts.push(newPost);
     },
     deletePost(id) {
-      this.posts = this.posts.filter((post) => post.id != id);
+      this.posts = this.posts.filter((post) => post.id !== id);
     },
-    showModal(){
-      this.isShown = !this.isShown
-    }
+    showModal() {
+      this.isShown = !this.isShown;
+    },
+    async fetchPosts() {
+      // #1 =====
+      // this.posts = (
+      //   await axios.get("https://jsonplaceholder.typicode.com/posts?_limit=10")
+      // ).data;
+
+      // #2 =====
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/posts?_limit=10"
+      );
+      this.posts = response.data;
+    },
   },
+  
 };
 </script>
 
 <template>
   <div>
-    <!-- <PostForm @create-post="createPost" /> -->
-    <button @click="showModal">Post</button>
-    <MyModal : show="isShown">
-      
+    
+    <button @click="showModal">Создать пост</button>
+    <MyModal :show="isShown" :change-show="showModal">
+      <PostForm :change-show="showModal" @create-post="createPost" />
     </MyModal>
-    <PostList :posts="posts" @delete-post="deletePost" />
+    <MySelect
+      :value="selectedSort"
+      :options="sortOptions"
+      @change-value="(v) => (selectedSort = v)"
+    />
+    <PostList v-if="!isLoading" :posts="posts" @delete-post="deletePost" />
+    <div v-else>... загрузка</div>
   </div>
 </template>
 
@@ -88,4 +104,4 @@ form {
   background: none;
   color: teal;
 }
-</style>  
+</style>
