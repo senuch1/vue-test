@@ -1,14 +1,22 @@
 <script>
+import CurrencyConverter from "./components/CurrencyConverter.vue";
+
 export default {
-  data: () => {
-    return {}
-  }
-}
+  name: "App",
+  components: {
+    CurrencyConverter,
+  },
+};
 </script>
 
+
 <template>
-  <div>App</div>
+  <div id="app">
+    <CurrencyConverter />
+  </div>
 </template>
 
-<style scoped>
-</style>  
+<style>
+
+
+</style>
