@@ -51,7 +51,7 @@ export default {
       <input type="number" v-model="amount" />
     </div>
     <div>
-      <p>{{ amount }} {{ fromCurrency }} is equivalent to {{ convertedAmount }} {{ toCurrency }}</p>
+      <p>{{ amount }} {{ fromCurrency }} эквивалентно {{ convertedAmount }} {{ toCurrency }}</p>
     </div>
   </div>
 </template>
