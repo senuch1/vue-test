@@ -92,16 +92,16 @@ form {
 }
 .input {
   width: 100%;
-  border: 1px solid teal;
+  border: 1px solid red;
   padding: 10px 15px;
   margin-top: 15px;
 }
 .btn {
   align-self: flex-end;
   margin-top: 15px;
-  border: 1px solid teal;
-  padding: 10px 15px;
+  border: 1px solid red;
+  padding: 10px 15px; 
   background: none;
-  color: teal;
+  color: red;
 }
 </style>

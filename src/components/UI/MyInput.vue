@@ -29,7 +29,7 @@ export default {
 
 <style scoped>
 .input {
-  border: 1px solid teal;
+  border: 1px solid red;
   padding: 10px 15px;
   margin-top: 15px;
   width: 100%;

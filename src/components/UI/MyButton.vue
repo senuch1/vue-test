@@ -12,10 +12,10 @@ export default {
 
 <style scoped>
 .btn {
-  border: 1px solid teal;
+  border: 1px solid red;
 
   background: none;
-  color: teal;
+  color: red;
   cursor: pointer;
 }
 </style>

@@ -29,7 +29,7 @@ export default {
 <style scoped>
 .post {
   padding: 15px;
-  border: 1px solid teal;
+  border: 1px solid red;
   margin-top: 15px;
 }
 </style>
