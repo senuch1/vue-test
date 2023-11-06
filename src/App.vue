@@ -1,13 +1,22 @@
 <script>
+import  initaliazeApp from  "./mixin/initaliazeApp"
+
 export default {
+  components:[],
+  mixins:[initaliazeApp],
   data: () => {
-    return {}
-  }
+    return {
+
+    }
+  },
+  mounted() {
+     this.initApp();
+  },
 }
 </script>
 
 <template>
-  <div>App</div>
+
 </template>
 
 <style scoped>
