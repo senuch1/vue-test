@@ -1,10 +1,10 @@
 <script>
 // import initaliazeApp from "./mixin/initaliazeApp"
-import Balance from './components/Balance.vue'
-import CategoryModal from './components/CategoryModal.vue'
-import ProfitModal from './components/ProfitModal.vue'
-import ExpenseModal from './components/ExpenseModal.vue'
-import CategoryList from './components/CategoryList.vue'
+import Balance from "./components/Balance.vue";
+import CategoryModal from "./components/CategoryModal.vue";
+import ProfitModal from "./components/ProfitModal.vue";
+import ExpenseModal from "./components/ExpenseModal.vue";
+import CategoryList from "./components/CategoryList.vue";
 
 export default {
   components: {
@@ -12,60 +12,75 @@ export default {
     CategoryModal,
     ProfitModal,
     ExpenseModal,
-    CategoryList
+    CategoryList,
   },
   // mixins: [initaliazeApp],
   data: () => {
-    return {
-
-    }
+    return {};
   },
   mounted() {
     // this.initApp();
   },
-}
+};
 </script>
 
 <template>
-  <div>
-    <div class="menu">
-      <div class="menu_tools">
-        <Balance />
-        <div сlass="menu_tools-btn">
-          <ProfitModal />
-          <ExpenseModal />
-        </div>
-      </div>
-      <div class="menu_categories">
-        <CategoryModal />
-        <CategoryList />
+  <div class="menu">
+    <div class="menu_tools">
+      <Balance />
+
+      <img
+        class="menu_common-image"
+        src="/src/assets/images/wallet.svg"
+        alt=""
+        srcset=""
+      />
+      <div сlass="menu_tools-btn">
+        <ProfitModal />
+        <ExpenseModal />
       </div>
     </div>
-  </div>  
-</template>
+    <div class="menu_categories">
+      <CategoryModal />
+      <CategoryList />
+    </div>
+  </div>
+</template> 
 
 <style scoped>
 .menu {
-  margin-left:30px ;
-  margin-top: 40px;
-  box-shadow: 0px 0px 10px 0px #0000004D;
-  width: 600px;
-  height: 944px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-shadow: 0px 0px 10px 0px #0000004d;
+  max-width: 600px;
+  padding: 15px;
+  border-radius: 24px;
+}
+.menu_common {
+  max-width: 82px;
+  max-height: 82px;
+}
+.menu_common-image {
+  border-radius: 24px;
+  display: block;
+  position: relative;
+  z-index: 1001;
+  bottom: 3%;
+  right: 8%;
+  max-width: 60px;
+  max-height: 60px;
+  background: #e4e4e4;
 }
 
 .menu_tools {
   display: flex;
-  height: 150px;
-  width: 350px;
-  align-items: center;
-  margin-left: 50px;
-  
+  justify-content: center;
 }
 .menu_tools-btn{
-
+  
 }
 .menu_categories {
-  margin-left: 50px;
+    
 }
 </style>  

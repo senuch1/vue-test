@@ -1,7 +1,7 @@
 <template>
   <div class="balance_list">
     <h2 class="balance_name">BALANCE:</h2>
-    <h1 class="balance">${{ balance }}</h1>
+    <h1 class="balance">{{ balance }} $</h1>
   </div>
 </template>
   
@@ -19,7 +19,8 @@ export default {
   width: 250px;
   height: 150px;
   border-radius: 8px;
-  background: #FFFFFF;
+  background:#FFFFFF;
+  border: none;
 }
 
 .balance_name {
@@ -29,6 +30,8 @@ export default {
   line-height: 29px;
   letter-spacing: 0em;
   text-align: left;
+  margin-top: 19px;
+  margin-left:19px
 }
 
 .balance {
@@ -41,6 +44,8 @@ export default {
   letter-spacing: 0em;
   text-align: left;
   color: #55885D;
+  margin-top: 10px;
+  margin-left:62px;
 
 }
 </style>

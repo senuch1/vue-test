@@ -19,13 +19,38 @@ export default {
   },
 };
 </script>
+
 <template>
   <div>
-    <button @click="openModal">категор</button>
+    <button class="btn-category" @click="openModal">+</button>
     <div v-if="modalVisible">
       <input v-model="categoryName" type="text" placeholder="Category Name" />
       <button @click="saveCategory">сохр</button>
     </div>
   </div>
 </template>
+
+<style>
+.btn-category {
+  display: flex;
+  height: 43px;
+  padding: 10px 240px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border:none;
+  border-radius: 8px;
+  background: #fff;
+  color: #47604b;
+  font-family: Istok Web;
+  font-size: 46px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0px; /* 0% */
+  cursor: pointer;
   
+}
+.btn-category:hover {
+  background-color: rgb(216, 216, 216);
+}
+</style>
