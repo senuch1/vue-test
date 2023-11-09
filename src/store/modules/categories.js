@@ -1,30 +1,35 @@
-const name = "CATEGORIES";
-const namespaced = true;
 const state = {
-  allCategories: [],
+  categories: [],
 };
-const getters = {
-  STATE: (s) => s,
-};
+
 const mutations = {
-  SET_ALL_CATEGORIES: (state, payload) => {
-    state.allCategories = payload;
+  addCategory(state, category) {
+    state.categories.push(category);
   },
-  SET_ONE_CATEGORY: (state, payload) => {
-    state.allCategories.push(payload);
+  updateCategoryBalance(state, { categoryId, amount }) {
+    const category = state.categories.find((c) => c.id === categoryId);
+    if (category) {
+      category.balance += amount;
+    }
   },
 };
+
 const actions = {
-  GET_ALL_CATEGORIES: ({ state, commit }, payload) => {
-    const categories = JSON.parse(localStorage.getItem("categories")) || [1];
-    commit('SET_CATEGORIES', categories);
+  createCategory({ commit }, category) {
+    category.balance = 0;
+    commit("addCategory", category);
+  },
+  addExpense({ commit, rootState }, expenseData) {
+    commit("updateCategoryBalance", {
+      categoryId: expenseData.categoryId,
+      amount: -expenseData.amount,
+    });
+    rootState.balance.balance -= expenseData.amount;
   },
 };
+
 export default {
-  name,
-  namespaced,
   state,
-  getters,
   mutations,
   actions,
 };

@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
-import categories from "./modules/categories.js";
-import balance from "./modules/balance.js";
+import balanceModule from './modules/balance'
+import categories from './modules/categories'
 
 export default createStore({
   state() {
@@ -10,7 +10,8 @@ export default createStore({
     mutations: {},
     actions: {},
     modules: {
-    Categories: categories,
-    Balance: balance,
+      balance: balanceModule,
+      categories,
+
   },
 });
