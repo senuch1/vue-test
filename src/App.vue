@@ -5,7 +5,8 @@ import CategoryModal from "./components/CategoryModal.vue";
 import ProfitModal from "./components/ProfitModal.vue";
 import ExpenseModal from "./components/ExpenseModal.vue";
 import CategoryList from "./components/CategoryList.vue";
-
+import ProfitsHistory from "./components/ProfitsHistory.vue"
+import ExpensesHistory from "./components/ExpensesHistory.vue"
 export default {
   components: {
     Balance,
@@ -13,13 +14,8 @@ export default {
     ProfitModal,
     ExpenseModal,
     CategoryList,
-  },
-  // mixins: [initaliazeApp],
-  data: () => {
-    return {};
-  },
-  mounted() {
-    // this.initApp();
+    ProfitsHistory,
+    ExpensesHistory,
   },
 };
 </script>
@@ -28,13 +24,7 @@ export default {
   <div class="menu">
     <div class="menu_tools">
       <Balance />
-
-      <img
-        class="menu_common-image"
-        src="/src/assets/images/wallet.svg"
-        alt=""
-        srcset=""
-      />
+      <img class="menu_common-image" src="/src/assets/images/wallet.svg" alt="" srcset="" />
       <div сlass="menu_tools-btn">
         <ProfitModal />
         <ExpenseModal />
@@ -44,6 +34,12 @@ export default {
       <CategoryModal />
       <CategoryList />
     </div>
+  </div>
+  <div class="profits-menu">
+    <ProfitsHistory />
+  </div>
+  <div class="expenses-menu">
+    <ExpensesHistory />
   </div>
 </template> 
 
@@ -57,15 +53,36 @@ export default {
   padding: 15px;
   border-radius: 24px;
 }
+
+.profits-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-shadow: 0px 0px 10px 0px #0000004d;
+  max-width: 600px;
+  padding: 15px;
+  border-radius: 24px;
+}
+
+.expenses-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-shadow: 0px 0px 10px 0px #0000004d;
+  max-width: 600px;
+  padding: 15px;
+  border-radius: 24px;
+}
+
 .menu_common {
   max-width: 82px;
   max-height: 82px;
 }
+
 .menu_common-image {
   border-radius: 24px;
   display: block;
   position: relative;
-  z-index: 1001;
   bottom: 3%;
   right: 8%;
   max-width: 60px;
@@ -76,11 +93,5 @@ export default {
 .menu_tools {
   display: flex;
   justify-content: center;
-}
-.menu_tools-btn{
-  
-}
-.menu_categories {
-    
 }
 </style>  

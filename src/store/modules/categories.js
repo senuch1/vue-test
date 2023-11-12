@@ -19,13 +19,7 @@ const actions = {
     category.balance = 0;
     commit("addCategory", category);
   },
-  addExpense({ commit, rootState }, expenseData) {
-    commit("updateCategoryBalance", {
-      categoryId: expenseData.categoryId,
-      amount: -expenseData.amount,
-    });
-    rootState.balance.balance -= expenseData.amount;
-  },
+
 };
 
 export default {

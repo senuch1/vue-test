@@ -1,10 +1,3 @@
-<template>
-  <div class="balance_list">
-    <h2 class="balance_name">BALANCE:</h2>
-    <h1 class="balance">{{ balance }} $</h1>
-  </div>
-</template>
-  
 <script>
 export default {
   computed: {
@@ -14,12 +7,20 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="balance_list">
+    <h2 class="balance_name">BALANCE:</h2>
+    <h1 class="balance">{{ balance }} $</h1>
+  </div>
+</template>
+  
 <style>
 .balance_list {
   width: 250px;
   height: 150px;
   border-radius: 8px;
-  background:#FFFFFF;
+  background: #FFFFFF;
   border: none;
 }
 
@@ -31,7 +32,7 @@ export default {
   letter-spacing: 0em;
   text-align: left;
   margin-top: 19px;
-  margin-left:19px
+  margin-left: 19px
 }
 
 .balance {
@@ -45,7 +46,7 @@ export default {
   text-align: left;
   color: #55885D;
   margin-top: 10px;
-  margin-left:62px;
+  margin-left: 62px;
 
 }
 </style>

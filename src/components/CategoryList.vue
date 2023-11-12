@@ -8,12 +8,11 @@ export default {
 };
 </script>
   
-
 <template>
   <div>
-      <li v-for="category in categories" :key="category.id">
-        {{ category.name }}: ${{ category.balance }}
-      </li>
+    <li v-for="category in categories" :key="category.id">
+      {{ category.name }}: ${{ category.balance }}
+    </li>
   </div>
 </template>
 

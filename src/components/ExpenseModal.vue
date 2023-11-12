@@ -1,11 +1,16 @@
 <script>
+import MyModal from './UI/MyModal.vue';
 export default {
+  components: {
+    MyModal,
+  },
   data() {
     return {
       amount: 0,
       comment: "",
       selectedCategory: null,
       modalVisible: false,
+      isShown: false,
     };
   },
   computed: {
@@ -23,35 +28,35 @@ export default {
       );
       if (category) {
         this.$store.dispatch("addExpense", {
-          amount: this.amount,
+          amount: parseFloat(this.amount), // Преобразуем amount в число
           comment: this.comment,
-          category: category.name,
-          categoryId: category.id,
+          category: category, // Передаем объект категории целиком
         });
         this.modalVisible = false;
       }
     },
-  },
+    showModal() {
+      this.isShown = !this.isShown;
+    },
+  }
 };
 </script>
 
 <template>
   <div>
-    <button class="btn-expense" @click="openModal">add expense</button>
-    <div v-if="modalVisible">
-      <input v-model="amount" type="number" placeholder="Amount" />
-      <input v-model="comment" type="text" placeholder="Comment" />
-      <select v-model="selectedCategory">
-        <option
-          v-for="category in categories"
-          :key="category.id"
-          :value="category.id"
-        >
-          {{ category.name }}
-        </option>
-      </select>
-      <button @click="saveExpense">сохр</button>
-    </div>
+    <button class="btn-expense" :change-show="showModal" @click="showModal">add expense</button>
+    <MyModal :show="isShown" :change-show="showModal">
+      <div>
+        <input v-model="amount" type="number" placeholder="Amount" />
+        <input v-model="comment" type="text" placeholder="Comment" />
+        <select v-model="selectedCategory">
+          <option v-for="category in categories" :key="category.id" :value="category.id">
+            {{ category.name }}
+          </option>
+        </select>
+        <button @click="saveExpense">сохр</button>
+      </div>
+    </MyModal>
   </div>
 </template>
 
@@ -75,8 +80,9 @@ export default {
   font-weight: 400;
   line-height: normal;
   cursor: pointer;
-  
+
 }
+
 .btn-expense:hover {
   background-color: #e27292;
 }

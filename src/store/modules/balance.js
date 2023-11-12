@@ -1,45 +1,26 @@
-// const name = "BALANCE";
-// const namespaced = true;
-// const state = {
-//   income:0,
-//   outcome:0,
-// };
-// const getters = {
-//   STATE: (s) => s,
-// };
-// const mutations = {};
-// const actions = {};
-// export default {
-//     name,
-//     namespaced,
-//     state,
-//     getters,
-//     mutations,
-//     actions,
-//   };
-
-
 const state = {
   balance: 0,
 };
-
 const mutations = {
   updateBalance(state, amount) {
     state.balance += amount;
   },
-};
+}
 
 const actions = {
   addProfit({ commit }, profitData) {
     commit("updateBalance", profitData.amount);
   },
   addExpense({ commit }, expenseData) {
-    commit("updateBalance", -expenseData.amount);
+    commit("addExpense", expenseData);
+    const expenseAmount = parseFloat(expenseData.amount);
   },
 };
 
 export default {
-  state,
+  state: {
+    balance: 0,
+  },
   mutations,
   actions,
 };
