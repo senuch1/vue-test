@@ -7,7 +7,7 @@ export default {
 </script>
 
 <template>
-  <div>App</div>
+  <div>Diplom test</div>
 </template>
 
 <style scoped>
