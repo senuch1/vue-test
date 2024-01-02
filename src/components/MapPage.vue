@@ -1,13 +1,12 @@
 <script>
-
 export default {
 
 }
 </script>
 
 <template>
-  <router-view></router-view>
+    <Header />
+    <Footer />
 </template>
 
-<style scoped>
-</style>  
+<style scoped></style>

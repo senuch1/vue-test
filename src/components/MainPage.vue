@@ -6,7 +6,10 @@ export default {
 </script>
 
 <template>
-  <router-view></router-view>
+  <Header/>
+  <Welcome/>
+  <Items/>
+  <Footer/>
 </template>
 
 <style scoped>
