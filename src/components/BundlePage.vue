@@ -1,4 +1,5 @@
 <script>
+
 export default {
 
 }
@@ -6,7 +7,9 @@ export default {
 
 <template>
     <Header />
+    <BundleItems />
     <Footer />
 </template>
+
 
 <style scoped></style>

@@ -1,4 +1,5 @@
 <script>
+
 export default {
 
 }
@@ -6,6 +7,7 @@ export default {
 
 <template>
     <Header />
+    <AgentItems/>
     <Footer />
 </template>
 

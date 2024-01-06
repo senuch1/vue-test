@@ -14,5 +14,6 @@ export default createRouter({
     { path: '/bundles', component: BundlePage},
     { path: '/forum', component: ForumPage},
   ],
+  
 });
 

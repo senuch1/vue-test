@@ -6,6 +6,7 @@ export default {
 
 <template>
     <Header />
+    <MapItems />
     <Footer />
 </template>
 

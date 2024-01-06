@@ -15,7 +15,8 @@ export default {
         'https://i.imgur.com/QWBLLCB.png',
         'https://i.imgur.com/LaO8r4z.png'
       ],
-      currentIndex: 0
+      currentIndex: 0,
+      buddies: [],
     };
   },
   computed: {
@@ -41,7 +42,21 @@ export default {
         this.nextSlide();
       }, 3000);
     }
-  }
+
+  },
+  methods: {
+    async fetchBuddies() {
+      try {
+        const response = await this.$axios.get('https://valorant-api.com/v1/bundles');
+        this.buddies = response.data.data;
+      } catch (error) {
+        console.error('Ошибка при получении данных:', error);
+      }
+    },
+  },
+  mounted() {
+    this.fetchBuddies();
+  },
   // https://valorant-api.com/v1/bundles
 };
 </script>
@@ -64,18 +79,12 @@ export default {
     <div class="items-skins">
       <h2 class="skins-title">Последние коллекции</h2>
       <div class="skins-items">
-        
-        <div class="skin-item">
 
+        <div class="skin-item" v-for="buddy in buddies.slice(0, 3)" :key="buddy.uuid">
+          <img class="skin-item_img" :src="buddy.displayIcon" alt="">
+          <p class="skin-item_title"> {{ buddy.displayName }}</p>
         </div>
 
-        <div class="skin-item">
-
-        </div>
-
-        <div class="skin-item">
-
-        </div>
       </div>
     </div>
     <div class="forum">
@@ -136,9 +145,36 @@ button:hover {
   background-color: #00C65E;
 }
 
+.skins-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+}
+
+.skin-item{
+  transition: 1s;
+}
+.skin-item:hover {
+  transform: scale(1.1);
+}
+
 .skins-title {
   font-size: 146px;
   color: #00C65E;
   font-family: 'Montserrat', sans-serif;
+}
+
+.skin-item_img {
+  height: 180px;
+  width: 300px;
+}
+
+.skin-item_title {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
 }
 </style>
