@@ -6,6 +6,8 @@ export default {
             newTopic: null,
             selectedTopic: null,
             comments: [],
+            isCommentListVisible: false,
+
         };
     },
     methods: {
@@ -18,8 +20,23 @@ export default {
             this.newTopic = topic;
             this.saveTopics();
         },
-        showComments(topicId) {
-
+        showComments(topic) {
+            this.selectedTopic = topic;
+            this.comments = this.selectedTopic.comments || [];
+            this.isCommentListVisible = true;
+        },
+        closeCommentList() {
+            this.selectedTopic = null;
+            this.comments = [];
+            this.isCommentListVisible = false;
+        },
+        addComment(comment) {
+            if (this.selectedTopic) {
+                this.selectedTopic.comments = this.selectedTopic.comments || [];
+                this.selectedTopic.comments.push(comment);
+                this.saveTopics();
+                this.comments = [...this.selectedTopic.comments];
+            }
         },
         deleteTopic(topicId) {
             this.topics = this.topics.filter(topic => topic.id !== topicId);
@@ -34,6 +51,9 @@ export default {
     <Header />
     <Forum @new-topic="addTopic" />
     <TopicList :topics="topics" :new-topic="newTopic" @show-comments="showComments" @delete-topic="deleteTopic" />
-    <CommentList :selectedTopic="selectedTopic" :comments="comments" />
+    <CommentList v-if="isCommentListVisible" :selectedTopic="selectedTopic" :comments="comments"
+        @close-comment-list="closeCommentList" @add-comment="addComment" />
     <Footer />
 </template>
+
+<style></style>    
