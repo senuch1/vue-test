@@ -75,4 +75,31 @@ export default {
     font-family: 'Montserrat', sans-serif;
     font-size: 26px;
 }
+@media only screen and (max-width: 768px) {
+    .map-items {
+    padding-top: 20px;
+    width: 768px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+}
+}
+
+@media only screen and (max-width: 320px) {
+    .map-items {
+    padding-top: 20px;
+    width: 320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+}
+}
 </style>

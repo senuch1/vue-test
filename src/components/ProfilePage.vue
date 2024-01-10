@@ -1,16 +1,15 @@
 <script>
-
-export default {
-
-}
+    export default {
+        
+    }
 </script>
 
 <template>
-  <Header/>
-  <Welcome/>
-  <Items/>
+    <Header/>
+    
     <Footer/>
 </template>
 
 <style scoped>
-</style>  
+
+</style>

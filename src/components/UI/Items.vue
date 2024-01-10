@@ -1,48 +1,16 @@
 <script>
-
 export default {
   name: "Items",
   props: {
     width: { type: String },
     border: { type: String, required: true },
     background: { type: String, required: true },
-    color: { type: String, required: true },
+    color: { type: String, required: true }
   },
   data() {
     return {
-      images: [
-        'https://i.imgur.com/dww6vpI.png',
-        'https://i.imgur.com/QWBLLCB.png',
-        'https://i.imgur.com/LaO8r4z.png'
-      ],
-      currentIndex: 0,
       buddies: [],
     };
-  },
-  computed: {
-    currentImage() {
-      return this.images[this.currentIndex];
-    }
-  },
-  mounted() {
-    // Запускаем автоматическое переключение изображений через каждые 4 секунды
-    this.startAutoSlide();
-  },
-  beforeDestroy() {
-    // Очищаем интервал при уничтожении компонента
-    clearInterval(this.intervalId);
-  },
-  methods: {
-    nextSlide() {
-      this.currentIndex = (this.currentIndex + 1) % this.images.length;
-    },
-    startAutoSlide() {
-      // Устанавливаем интервал для автоматического переключения слайдов
-      this.intervalId = setInterval(() => {
-        this.nextSlide();
-      }, 3000);
-    }
-
   },
   methods: {
     async fetchBuddies() {
@@ -57,7 +25,6 @@ export default {
   mounted() {
     this.fetchBuddies();
   },
-  // https://valorant-api.com/v1/bundles
 };
 </script>
 
@@ -72,8 +39,8 @@ export default {
     </div>
     <div class="slider">
       <h2 class="slider-title">Творчество</h2>
-      <div class="slider">
-        <img :src="currentImage" alt="Slide" class="slide" />
+      <div class="slide-box">
+        <img src="https://i.imgur.com/dww6vpI.png" alt="Slide" class="slide" />
       </div>
     </div>
     <div class="items-skins">
@@ -86,9 +53,6 @@ export default {
         </div>
 
       </div>
-    </div>
-    <div class="forum">
-      <h2 class="forum-title">На форуме</h2>
     </div>
   </section>
 </template>
@@ -154,9 +118,10 @@ button:hover {
 
 }
 
-.skin-item{
+.skin-item {
   transition: 1s;
 }
+
 .skin-item:hover {
   transform: scale(1.1);
 }
@@ -176,5 +141,182 @@ button:hover {
   color: white;
   font-family: 'Montserrat', sans-serif;
   font-size: 26px;
+}
+
+@media only screen and (max-width: 768px) {
+  .items {
+  padding-top: 20px;
+  width: 768px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.items-video {
+  display: flex;
+  margin: 0 auto;
+  width: 680px;
+  height: 620px;
+}
+
+.items-title {
+  font-size: 16px;
+  color: #00C65E;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.slider {
+  position: relative;
+  padding-top: 30px;
+}
+
+.slider-title {
+  font-size: 16px;
+  color: #00C65E;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.slide {
+  max-width: 100%;
+  height: auto;
+}
+
+.forum-title {
+  font-size: 14px;
+  color: #00C65E;
+  font-family: 'Montserrat', sans-serif;
+}
+
+button {
+  padding: 10px;
+  background-color: #266342;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00C65E;
+}
+
+.skins-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+}
+
+.skin-item {
+  transition: 1s;
+}
+
+.skin-item:hover {
+  transform: scale(1.1);
+}
+
+.skins-title {
+  font-size: 82px;
+  color: #00C65E;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.skin-item_img {
+  height: 180px;
+  width: 200px;
+}
+
+.skin-item_title {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+}
+@media only screen and (max-width: 320px) and (max-width: 768px) {
+  .items {
+  padding-top: 20px;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.items-video {
+  display: flex;
+  margin: 0 auto;
+  width: 320px;
+}
+
+.items-title {
+  font-size: 62px;
+  color: #00C65E;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.slider {
+  position: relative;
+  padding-top: 30px;
+}
+
+.slider-title {
+  font-size: 42px;
+  color: #00C65E;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.slide {
+  max-width: 320px;
+  height: auto;
+}
+
+.forum-title {
+  font-size: 14px;
+  color: #00C65E;
+  font-family: 'Montserrat', sans-serif;
+}
+
+button {
+  padding: 10px;
+  background-color: #266342;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00C65E;
+}
+
+.skins-items {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 1px;
+  grid-row-gap: 0px;
+
+}
+
+.skin-item {
+  transition: 1s;
+}
+
+.skin-item:hover {
+  transform: scale(1.1);
+}
+
+.skins-title {
+  font-size: 46px;
+  color: #00C65E;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.skin-item_img {
+  height: 200px;
+  width: 200px;
+}
+
+.skin-item_title {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+}
 }
 </style>

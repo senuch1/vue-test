@@ -39,6 +39,7 @@ export default {
     width: 1169px;
     margin: 0 auto;
     padding: 0;
+    text-align: center;
 }
 
 .welcome {
@@ -69,5 +70,87 @@ export default {
 
 .welcome-img:hover {
     transform: scale(1.1);
+}
+@media only screen and (max-width: 768px) {
+    
+.welcome-menu {
+    width: 680px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.welcome {
+    display: flex;
+    margin-top: 30px;   
+    justify-content: center;
+    display: inline-grid;
+    
+}
+
+.welcome-title {
+    font-size: 82px;
+    color: #00C65E;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.welcome-description {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    width: 320px;
+
+}
+
+.welcome-img {
+    height: 300px;
+    width: 300px;
+    transition: 1s;
+    text-align: center;
+}
+
+.welcome-img:hover {
+    transform: scale(1.1);
+}
+}
+@media only screen and (max-width: 420px) and (max-width:320px){
+    
+    .welcome-menu {
+        width: 320px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    
+    .welcome {
+        display: flex;
+        margin-top: 30px;   
+        justify-content: center;
+        display: inline-grid;
+        
+    }
+    
+    .welcome-title {
+        font-size: 82px;
+        color: #00C65E;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .welcome-description {
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        width: 320px;
+    
+    }
+    
+    .welcome-img {
+        height: 300px;
+        width: 320px;
+        transition: 1s;
+        text-align: center;
+    }
+    
+    .welcome-img:hover {
+        transform: scale(1.1);
+    }
 }
 </style>

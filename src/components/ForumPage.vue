@@ -42,6 +42,13 @@ export default {
             this.topics = this.topics.filter(topic => topic.id !== topicId);
             this.saveTopics();
         },
+        deleteComment(index) {
+            if (this.selectedTopic && this.selectedTopic.comments) {
+                this.selectedTopic.comments.splice(index, 1);
+                this.saveTopics();
+                this.comments = [...this.selectedTopic.comments];
+            }
+        },
     },
 };
 </script>
@@ -52,7 +59,7 @@ export default {
     <Forum @new-topic="addTopic" />
     <TopicList :topics="topics" :new-topic="newTopic" @show-comments="showComments" @delete-topic="deleteTopic" />
     <CommentList v-if="isCommentListVisible" :selectedTopic="selectedTopic" :comments="comments"
-        @close-comment-list="closeCommentList" @add-comment="addComment" />
+        @close-comment-list="closeCommentList" @add-comment="addComment" @delete-comment="deleteComment" />
     <Footer />
 </template>
 

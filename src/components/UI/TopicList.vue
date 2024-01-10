@@ -22,11 +22,11 @@ export default {
 <template>
     <section class="topic">
         <h2 class="topic-title">Лента тем</h2>
-        <div class="topic-theme" >
+        <div class="topic-theme">
             <div class="theme" v-for="topic in topics" :key="topic.id">
                 <p class="theme-title">{{ topic.title }}</p>
                 <div class="theme-btn">
-                    <button class="theme-comment_btn"  @click="showComments(topic)">Комментарии</button>
+                    <button class="theme-comment_btn" @click="showComments(topic)">Комментарии</button>
                     <button class="theme-delete_btn" @click="deleteTopic(topic.id)">Удалить тему</button>
                 </div>
             </div>
@@ -69,9 +69,10 @@ export default {
     text-align: center;
 }
 
-.theme-btn{
+.theme-btn {
     text-align: center;
 }
+
 .theme-comment_btn {
     background-color: #00C65E;
     border: none;
@@ -82,6 +83,29 @@ export default {
 .theme-delete_btn {
     border: none;
     color: rgb(43, 43, 43);
-cursor: pointer;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .topic {
+        padding-top: 20px;
+        width: 768px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .topic {
+        padding-top: 20px;
+        width: 320px;
+        margin: 0 auto;
+    }
+
+    .topic-title {
+        font-size: 42px;
+        color: #00C65E;
+        font-family: 'Montserrat', sans-serif;
+        text-align: start;
+    }
 }
 </style>

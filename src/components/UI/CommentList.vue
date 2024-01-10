@@ -30,6 +30,12 @@ export default {
                 this.newCommentText = '';
             }
         },
+        deleteComment(index) {
+            const confirmed = confirm('Вы уверены, что хотите удалить этот комментарий?');
+            if (confirmed) {
+                this.$emit('delete-comment', index);
+            }
+        },
     },
 };
 </script>
@@ -44,6 +50,7 @@ export default {
             </div>
             <p class="comments" v-for="comment in comments">
                 {{ comment.text }}
+                <button @click="deleteComment(index)">Удалить</button>
             </p>
             <button class="comment-list_btn" @click="closeCommentList">Закрыть</button>
         </div>
@@ -128,5 +135,13 @@ export default {
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+
+}
+
+@media only screen and (max-width: 320px) {
+
 }
 </style>
