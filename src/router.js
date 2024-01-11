@@ -4,7 +4,6 @@ import AgentPage from "./components/AgentPage.vue"
 import MapPage from "./components/MapPage.vue"
 import BundlePage from "./components/BundlePage.vue"
 import ForumPage from "./components/ForumPage.vue"
-import ProfilePage from "./components/ProfilePage.vue"
 
 
 export default createRouter({
@@ -15,7 +14,6 @@ export default createRouter({
     { path: '/maps', component: MapPage},
     { path: '/bundles', component: BundlePage},
     { path: '/forum', component: ForumPage},
-    { path: '/profile', component: ProfilePage},
   ],
   
 });

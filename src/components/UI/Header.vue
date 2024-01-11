@@ -7,13 +7,24 @@ export default {
         background: { type: String, required: true },
         color: { type: String, required: true },
     },
+    data() {
+        return {
+            isMenuOpen: false,
+        };
+    },
+    methods: {
+        toggleMenu() {
+            this.isMenuOpen = !this.isMenuOpen;
+        },
+    },
 }
 </script>
 
 <template>
     <header>
-        <img class="nav" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/1024px-Home-icon.svg.png" alt="">
-        <div class="header  ">
+        <img class="nav" @click="toggleMenu"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/1024px-Home-icon.svg.png" alt="">
+        <div class="header" :class="{ 'show-header': isMenuOpen }">
             <div class="header-logo">
                 <a href="/main">
                     <svg width="72" height="31" viewBox="0 0 72 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,23 +44,17 @@ export default {
                 <li><a class="header-links__link" href="/bundles">Коллекции</a></li>
                 <li><a class="header-links__link" href="/forum">Форум</a></li>
             </ul>
-            <div class="header-profile">
-                <a href="/profile"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="30" viewBox="0 0 12 12"
-                        fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M1 12C1 12 0 12 0 11C0 10 1 7 6 7C11 7 12 10 12 11C12 12 11 12 11 12H1ZM6 6C6.79565 6 7.55871 5.68393 8.12132 5.12132C8.68393 4.55871 9 3.79565 9 3C9 2.20435 8.68393 1.44129 8.12132 0.87868C7.55871 0.316071 6.79565 0 6 0C5.20435 0 4.44129 0.316071 3.87868 0.87868C3.31607 1.44129 3 2.20435 3 3C3 3.79565 3.31607 4.55871 3.87868 5.12132C4.44129 5.68393 5.20435 6 6 6Z"
-                            fill="#00C65E" />
-                    </svg></a>
-            </div>
+
         </div>
     </header>
 </template>
 
 <style>
-.nav{
+.nav {
     visibility: hidden;
     width: 30px;
 }
+
 header {
     background-color: rgb(43, 43, 43);
     color: white;
@@ -114,15 +119,11 @@ header {
     transform-origin: bottom left;
 }
 
-.header-profile {
-    height: 30px;
-}
-
 @media only screen and (max-width: 768px) {
     header {
         background-color: rgb(43, 43, 43);
         color: white;
-        font-size: 30px;    
+        font-size: 30px;
         display: flex;
         border-bottom: 3px solid #DADCDC;
         font-family: 'Montserrat', sans-serif;
@@ -182,15 +183,16 @@ header {
         transform-origin: bottom left;
     }
 
-    .header-profile {
-        width: 72px;
-    }
 
-    @media only screen  and (max-width:320px) {
-        .nav{
+
+    @media only screen and (max-width:320px) {
+        .nav {
             visibility: visible;
             cursor: pointer;
+            height: 49px;
+            width: 49px;
         }
+
         header {
             background-color: rgb(43, 43, 43);
             color: white;
@@ -204,17 +206,18 @@ header {
         }
 
         .header {
-            display: flex;
+            display: none;
             width: 768px;
-            height: 49px;
+            height: 200px;
             margin: 0 auto;
             justify-content: center;
-            display: none;
+
         }
 
         .header-logo {
             width: 72px;
             height: 31px;
+
         }
 
         .header-links {
@@ -222,6 +225,14 @@ header {
             list-style: none;
             width: 200px;
             justify-content: space-around;
+            display: inline-grid !important;
+
+        }
+
+
+        .header.show-header {
+            display: block !important;
+
         }
 
         .header-links__link {
@@ -230,6 +241,7 @@ header {
             cursor: pointer;
             transition: 0.4s all ease;
             position: relative;
+            font-size: 32px;
         }
 
         .header-links__link:hover {
@@ -254,9 +266,6 @@ header {
             transform-origin: bottom left;
         }
 
-        .header-profile {
-            width: 72px;
-        }
     }
 }
 </style>
