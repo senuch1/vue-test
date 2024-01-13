@@ -136,12 +136,4 @@ export default {
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
 }
-
-@media only screen and (max-width: 768px) {
-
-}
-
-@media only screen and (max-width: 320px) {
-
-}
 </style>

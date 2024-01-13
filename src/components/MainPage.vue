@@ -6,11 +6,10 @@ export default {
 </script>
 
 <template>
-  <Header/>
-  <Welcome/>
-  <Items/>
-    <Footer/>
+  <Header />
+  <Welcome />
+  <Items />
+  <Footer />
 </template>
 
-<style scoped>
-</style>  
+<style scoped></style>  

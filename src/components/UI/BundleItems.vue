@@ -19,7 +19,7 @@ export default {
                 this.buddies = response.data.data;
                 console.log(response.data.data);
             } catch (error) {
-                console.error('Ошибка при получении данных:', error);
+                console.error('Ошибка', error);
             }
         },
     },
@@ -31,7 +31,7 @@ export default {
 
 <template>
     <section class="bundle-items">
-        <div class="bundle-item" v-for="buddy in buddies.splice(0,77)" :key="buddy.uuid">
+        <div class="bundle-item" v-for="buddy in buddies.splice(0, 77)" :key="buddy.uuid">
             <img class="bundle-item_img" :src="buddy.displayIcon" alt="">
             <p class="bundle-item_title"> {{ buddy.displayName }}</p>
         </div>
@@ -53,6 +53,7 @@ export default {
 
 .bundle-item {
     transition: 1s;
+    text-align: center;
 }
 
 .bundle-item:hover {
@@ -78,31 +79,31 @@ export default {
 
 @media only screen and (max-width: 768px) {
     .bundle-items {
-    padding-top: 20px;
-    width: 768px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+        padding-top: 20px;
+        width: 768px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
 
-}
+    }
 
 }
 
 @media only screen and (max-width: 320px) {
     .bundle-items {
-    padding-top: 20px;
-    width: 320px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+        padding-top: 20px;
+        width: 320px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
 
-}
+    }
 
 }
 </style>

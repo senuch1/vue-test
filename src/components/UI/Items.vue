@@ -18,7 +18,7 @@ export default {
         const response = await this.$axios.get('https://valorant-api.com/v1/bundles');
         this.buddies = response.data.data;
       } catch (error) {
-        console.error('Ошибка при получении данных:', error);
+        console.error('Ошибкa', error);
       }
     },
   },
@@ -145,178 +145,179 @@ button:hover {
 
 @media only screen and (max-width: 768px) {
   .items {
-  padding-top: 20px;
-  width: 768px;
-  margin: 0 auto;
-  text-align: center;
+    padding-top: 20px;
+    width: 768px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .items-video {
+    display: flex;
+    margin: 0 auto;
+    width: 680px;
+    height: 620px;
+  }
+
+  .items-title {
+    font-size: 16px;
+    color: #00C65E;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .slider {
+    position: relative;
+    padding-top: 30px;
+  }
+
+  .slider-title {
+    font-size: 16px;
+    color: #00C65E;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .slide {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .forum-title {
+    font-size: 14px;
+    color: #00C65E;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  button {
+    padding: 10px;
+    background-color: #266342;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #00C65E;
+  }
+
+  .skins-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+  }
+
+  .skin-item {
+    transition: 1s;
+  }
+
+  .skin-item:hover {
+    transform: scale(1.1);
+  }
+
+  .skins-title {
+    font-size: 82px;
+    color: #00C65E;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .skin-item_img {
+    height: 180px;
+    width: 200px;
+  }
+
+  .skin-item_title {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+  }
 }
 
-.items-video {
-  display: flex;
-  margin: 0 auto;
-  width: 680px;
-  height: 620px;
-}
-
-.items-title {
-  font-size: 16px;
-  color: #00C65E;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.slider {
-  position: relative;
-  padding-top: 30px;
-}
-
-.slider-title {
-  font-size: 16px;
-  color: #00C65E;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.slide {
-  max-width: 100%;
-  height: auto;
-}
-
-.forum-title {
-  font-size: 14px;
-  color: #00C65E;
-  font-family: 'Montserrat', sans-serif;
-}
-
-button {
-  padding: 10px;
-  background-color: #266342;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #00C65E;
-}
-
-.skins-items {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-
-}
-
-.skin-item {
-  transition: 1s;
-}
-
-.skin-item:hover {
-  transform: scale(1.1);
-}
-
-.skins-title {
-  font-size: 82px;
-  color: #00C65E;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.skin-item_img {
-  height: 180px;
-  width: 200px;
-}
-
-.skin-item_title {
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-}
-}
 @media only screen and (max-width: 320px) and (max-width: 768px) {
   .items {
-  padding-top: 20px;
-  width: 320px;
-  margin: 0 auto;
-}
+    padding-top: 20px;
+    width: 320px;
+    margin: 0 auto;
+  }
 
-.items-video {
-  display: flex;
-  margin: 0 auto;
-  width: 320px;
-}
+  .items-video {
+    display: flex;
+    margin: 0 auto;
+    width: 320px;
+  }
 
-.items-title {
-  font-size: 62px;
-  color: #00C65E;
-  font-family: 'Montserrat', sans-serif;
-}
+  .items-title {
+    font-size: 62px;
+    color: #00C65E;
+    font-family: 'Montserrat', sans-serif;
+  }
 
-.slider {
-  position: relative;
-  padding-top: 30px;
-}
+  .slider {
+    position: relative;
+    padding-top: 30px;
+  }
 
-.slider-title {
-  font-size: 42px;
-  color: #00C65E;
-  font-family: 'Montserrat', sans-serif;
-}
+  .slider-title {
+    font-size: 42px;
+    color: #00C65E;
+    font-family: 'Montserrat', sans-serif;
+  }
 
-.slide {
-  max-width: 320px;
-  height: auto;
-}
+  .slide {
+    max-width: 320px;
+    height: auto;
+  }
 
-.forum-title {
-  font-size: 14px;
-  color: #00C65E;
-  font-family: 'Montserrat', sans-serif;
-}
+  .forum-title {
+    font-size: 14px;
+    color: #00C65E;
+    font-family: 'Montserrat', sans-serif;
+  }
 
-button {
-  padding: 10px;
-  background-color: #266342;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
+  button {
+    padding: 10px;
+    background-color: #266342;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
 
-button:hover {
-  background-color: #00C65E;
-}
+  button:hover {
+    background-color: #00C65E;
+  }
 
-.skins-items {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 1px;
-  grid-row-gap: 0px;
+  .skins-items {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 1px;
+    grid-row-gap: 0px;
 
-}
+  }
 
-.skin-item {
-  transition: 1s;
-}
+  .skin-item {
+    transition: 1s;
+  }
 
-.skin-item:hover {
-  transform: scale(1.1);
-}
+  .skin-item:hover {
+    transform: scale(1.1);
+  }
 
-.skins-title {
-  font-size: 46px;
-  color: #00C65E;
-  font-family: 'Montserrat', sans-serif;
-}
+  .skins-title {
+    font-size: 46px;
+    color: #00C65E;
+    font-family: 'Montserrat', sans-serif;
+  }
 
-.skin-item_img {
-  height: 200px;
-  width: 200px;
-}
+  .skin-item_img {
+    height: 200px;
+    width: 200px;
+  }
 
-.skin-item_title {
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 26px;
-}
+  .skin-item_title {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+  }
 }
 </style>

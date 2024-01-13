@@ -153,7 +153,7 @@ footer {
     }
 }
 
-@media only screen and (max-width: 320px){
+@media only screen and (max-width: 320px) {
     .footer {
         display: flex;
         width: 320px;

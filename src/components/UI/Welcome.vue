@@ -1,5 +1,4 @@
 <script>
-import axios from 'axios'
 export default {
     name: "Welcome",
     props: {
@@ -7,11 +6,6 @@ export default {
         border: { type: String, required: true },
         background: { type: String, required: true },
         color: { type: String, required: true },
-    },
-    mounted() {
-        axios
-        // .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-        // .then(response => (this.info = response));
     },
 }
 </script>
@@ -29,8 +23,6 @@ export default {
                 </p>
             </div>
         </div>
-
-        <!-- <p>{{ info.data.time.updated }}</p> -->
     </section>
 </template>
 
@@ -71,84 +63,86 @@ export default {
 .welcome-img:hover {
     transform: scale(1.1);
 }
+
 @media only screen and (max-width: 768px) {
-    
-.welcome-menu {
-    width: 680px;
-    margin: 0 auto;
-    padding: 0;
-}
 
-.welcome {
-    display: flex;
-    margin-top: 30px;   
-    justify-content: center;
-    display: inline-grid;
-    
-}
-
-.welcome-title {
-    font-size: 82px;
-    color: #00C65E;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.welcome-description {
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 26px;
-    width: 320px;
-
-}
-
-.welcome-img {
-    height: 300px;
-    width: 300px;
-    transition: 1s;
-    text-align: center;
-}
-
-.welcome-img:hover {
-    transform: scale(1.1);
-}
-}
-@media only screen and (max-width: 420px) and (max-width:320px){
-    
     .welcome-menu {
-        width: 320px;
+        width: 680px;
         margin: 0 auto;
         padding: 0;
     }
-    
+
     .welcome {
         display: flex;
-        margin-top: 30px;   
+        margin-top: 30px;
         justify-content: center;
         display: inline-grid;
-        
+
     }
-    
+
     .welcome-title {
         font-size: 82px;
         color: #00C65E;
         font-family: 'Montserrat', sans-serif;
     }
-    
+
+    .welcome-description {
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 26px;
+        width: 320px;
+
+    }
+
+    .welcome-img {
+        height: 300px;
+        width: 300px;
+        transition: 1s;
+        text-align: center;
+    }
+
+    .welcome-img:hover {
+        transform: scale(1.1);
+    }
+}
+
+@media only screen and (max-width: 420px) and (max-width:320px) {
+
+    .welcome-menu {
+        width: 320px;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .welcome {
+        display: flex;
+        margin-top: 30px;
+        justify-content: center;
+        display: inline-grid;
+
+    }
+
+    .welcome-title {
+        font-size: 82px;
+        color: #00C65E;
+        font-family: 'Montserrat', sans-serif;
+    }
+
     .welcome-description {
         color: white;
         font-family: 'Montserrat', sans-serif;
         font-size: 16px;
         width: 320px;
-    
+
     }
-    
+
     .welcome-img {
         height: 300px;
         width: 320px;
         transition: 1s;
         text-align: center;
     }
-    
+
     .welcome-img:hover {
         transform: scale(1.1);
     }

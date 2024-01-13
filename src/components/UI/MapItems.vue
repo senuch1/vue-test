@@ -19,7 +19,7 @@ export default {
                 this.buddies = response.data.data;
                 console.log(response.data.data);
             } catch (error) {
-                console.error('Ошибка при получении данных:', error);
+                console.error('Ошибка', error);
             }
         },
     },
@@ -53,6 +53,7 @@ export default {
 
 .map-item {
     transition: 1s;
+    text-align: center;
 }
 
 .map-item:hover {

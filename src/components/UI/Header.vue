@@ -23,7 +23,7 @@ export default {
 <template>
     <header>
         <img class="nav" @click="toggleMenu"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Home-icon.svg/1024px-Home-icon.svg.png" alt="">
+            src="https://icon-library.com/images/menu-icon-png-3-lines/menu-icon-png-3-lines-5.jpg" alt="">
         <div class="header" :class="{ 'show-header': isMenuOpen }">
             <div class="header-logo">
                 <a href="/main">
@@ -217,7 +217,7 @@ header {
         .header-logo {
             width: 72px;
             height: 31px;
-
+            margin-left: 50px;
         }
 
         .header-links {
