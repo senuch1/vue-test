@@ -71,7 +71,7 @@ export default {
 
 .items-title {
   font-size: 146px;
-  color: #00C65E;
+  color: #0e3eff;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -82,7 +82,7 @@ export default {
 
 .slider-title {
   font-size: 146px;
-  color: #00C65E;
+  color: #0e3eff;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -93,7 +93,7 @@ export default {
 
 .forum-title {
   font-size: 146px;
-  color: #00C65E;
+  color: #0e3eff;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -128,7 +128,7 @@ button:hover {
 
 .skins-title {
   font-size: 146px;
-  color: #00C65E;
+  color: #0e3eff;;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -138,7 +138,7 @@ button:hover {
 }
 
 .skin-item_title {
-  color: white;
+  color: #0e3eff;;
   font-family: 'Montserrat', sans-serif;
   font-size: 26px;
 }
@@ -160,7 +160,7 @@ button:hover {
 
   .items-title {
     font-size: 16px;
-    color: #00C65E;
+    color: #0e3eff;;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -171,7 +171,7 @@ button:hover {
 
   .slider-title {
     font-size: 16px;
-    color: #00C65E;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -182,7 +182,7 @@ button:hover {
 
   .forum-title {
     font-size: 14px;
-    color: #00C65E;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -195,7 +195,7 @@ button:hover {
   }
 
   button:hover {
-    background-color: #00C65E;
+    background-color: #0e3eff;
   }
 
   .skins-items {
@@ -217,7 +217,7 @@ button:hover {
 
   .skins-title {
     font-size: 82px;
-    color: #00C65E;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -248,7 +248,7 @@ button:hover {
 
   .items-title {
     font-size: 62px;
-    color: #00C65E;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -259,7 +259,7 @@ button:hover {
 
   .slider-title {
     font-size: 42px;
-    color: #00C65E;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -270,7 +270,7 @@ button:hover {
 
   .forum-title {
     font-size: 14px;
-    color: #00C65E;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -305,7 +305,7 @@ button:hover {
 
   .skins-title {
     font-size: 46px;
-    color: #00C65E;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -315,7 +315,7 @@ button:hover {
   }
 
   .skin-item_title {
-    color: white;
+    color: #6a88ff;
     font-family: 'Montserrat', sans-serif;
     font-size: 26px;
   }

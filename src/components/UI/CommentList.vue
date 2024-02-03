@@ -76,8 +76,8 @@ export default {
 }
 
 .comment {
-    background: rgb(43, 43, 43);
-    width: 300px;
+    background: white;
+    width: 1300px;
     height: 400px;
     max-width: 100%;
     max-height: 100%;
@@ -86,7 +86,7 @@ export default {
 
 .comment-list_title {
     font-size: 12px;
-    color: #00C65E;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -100,18 +100,18 @@ export default {
 
 
 .comment-list_btn {
-    border: #00C65E 1px solid;
-    background-color: rgb(43, 43, 43);
-    color: #00C65E;
+    border: #0e3eff 1px solid;
+    background-color: white;
+    color: #0e3eff;
     width: 80px;
     height: 40px;
     cursor: pointer;
 }
 
 .comment-add_btn {
-    border: #00C65E 1px solid;
-    background-color: rgb(43, 43, 43);
-    color: #00C65E;
+    border: #0e3eff 1px solid;
+    background-color: white;
+    color: #0e3eff;
     font-size: 8px;
     width: 80px;
     height: 40px;
@@ -119,20 +119,20 @@ export default {
 }
 
 .comment-add_input {
-    border: #00C65E 1px solid;
-    background-color: rgb(43, 43, 43);
-    color: #00C65E;
+    border: #0e3eff 1px solid;
+    background-color: white;
+    color: #0e3eff;
     font-size: 8px;
     width: 86px;
     height: 40px;
 }
 
 .comment-add_input::placeholder {
-    color: #00C65E;
+    color: #0e3eff;
 }
 
 .comments {
-    color: white;
+    color: black;
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
 }

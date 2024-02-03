@@ -37,34 +37,34 @@ export default {
 }
 
 .forum-description {
-    color: white;
+    color: #6a88ff;
     font-family: 'Montserrat', sans-serif;
     font-size: 26px;
 }
 
 .forum-title {
     font-size: 146px;
-    color: #00C65E;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
 }
 
 .themes-input {
     width: 200px;
     height: 62px;
-    border: #00C65E 1px solid;
-    background-color: rgb(43, 43, 43);
-    color: #00C65E;
+    border: #0e3eff 1px solid;
+
+    color: #6a88ff;
 }
 
 .themes-input::placeholder {
     text-align: center;
-    color: #00C65E;
+    color: #0e3eff;
 }
 
 .themes-btn {
     width: 200px;
     height: 66px;
-    background-color: #00C65E;
+    background-color: #0e3eff;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     color: white;
@@ -74,9 +74,9 @@ export default {
 
 .themes-btn:hover {
     transition: 1s;
-    background: rgba(0, 0, 0, 0);
-    color: #00C65E;
-    box-shadow: inset 0 0 0 3px #00C65E;
+    background-color: #0e3eff;
+    color: #6a88ff;
+    box-shadow: inset 0 0 0 3px #6a88ff;
     cursor: pointer;
 }
 
@@ -89,7 +89,7 @@ export default {
 
     .forum-title {
         font-size: 82px;
-        color: #00C65E;
+        color:#0e3eff;
         font-family: 'Montserrat', sans-serif;
     }
 }
@@ -103,7 +103,7 @@ export default {
 
     .forum-title {
         font-size: 42px;
-        color: #00C65E;
+        color: #0e3eff;
         font-family: 'Montserrat', sans-serif;
     }
 }

@@ -30,6 +30,9 @@ export default {
 </script>
 
 <template>
+    <div class="back">
+        <a href="/content"><img src="https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-gauche-bleu.png" class="link-back" alt=""></a>
+    </div>
     <section class="bundle-items">
         <div class="bundle-item" v-for="buddy in buddies.splice(0, 77)" :key="buddy.uuid">
             <img class="bundle-item_img" :src="buddy.displayIcon" alt="">
@@ -39,6 +42,16 @@ export default {
 </template>
 
 <style scoped>
+.back{
+    width: 1169px;
+    margin: 0 auto;
+}
+.link-back{
+    width: 148px;
+    height: 148px;
+    margin: 0 auto;
+
+}
 .bundle-items {
     padding-top: 20px;
     width: 1169px;
@@ -62,7 +75,7 @@ export default {
 
 .bundle-title {
     font-size: 146px;
-    color: #00C65E;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -72,7 +85,7 @@ export default {
 }
 
 .bundle-item_title {
-    color: white;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
     font-size: 26px;
 }

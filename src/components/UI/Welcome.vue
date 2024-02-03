@@ -42,12 +42,12 @@ export default {
 
 .welcome-title {
     font-size: 146px;
-    color: #00C65E;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
 }
 
 .welcome-description {
-    color: white;
+    color: #6a88ff;
     font-family: 'Montserrat', sans-serif;
     font-size: 26px;
 
@@ -82,12 +82,12 @@ export default {
 
     .welcome-title {
         font-size: 82px;
-        color: #00C65E;
+        color: #0e3eff;
         font-family: 'Montserrat', sans-serif;
     }
 
     .welcome-description {
-        color: white;
+        color: #6a88ff;
         font-family: 'Montserrat', sans-serif;
         font-size: 26px;
         width: 320px;
@@ -124,12 +124,12 @@ export default {
 
     .welcome-title {
         font-size: 82px;
-        color: #00C65E;
+        color: #0e3eff;
         font-family: 'Montserrat', sans-serif;
     }
 
     .welcome-description {
-        color: white;
+        color: #6a88ff;
         font-family: 'Montserrat', sans-serif;
         font-size: 16px;
         width: 320px;

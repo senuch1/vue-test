@@ -43,7 +43,7 @@ export default {
 
 .topic-title {
     font-size: 142px;
-    color: #00C65E;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
     text-align: end;
 
@@ -59,11 +59,11 @@ export default {
 .theme {
     width: 300px;
     height: 300px;
-    border: 1px #00C65E solid;
+    border: 1px #0e3eff solid;
 }
 
 .theme-title {
-    color: white;
+    color: #0e3eff;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
@@ -74,9 +74,9 @@ export default {
 }
 
 .theme-comment_btn {
-    background-color: #00C65E;
+    background-color: #0e3eff;
     border: none;
-    color: rgb(43, 43, 43);
+    color: white;
     cursor: pointer;
 }
 

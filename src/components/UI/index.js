@@ -8,4 +8,14 @@ import CommentList from "./CommentList.vue";
 import AgentItems from "./AgentItems.vue";
 import MapItems from "./MapItems.vue";
 import BundleItems from "./BundleItems.vue";
-export default [Header, Items, Welcome, Footer, Forum,TopicList,CommentList, AgentItems, MapItems, BundleItems];
+import RegistItems from "./RegistItems.vue";
+import ContentItems from "./ContentItems.vue";
+import ProfileItems from "./ProfileItems.vue";
+import LoginItems from "./LoginItems.vue";
+export default [
+    Header, Items, Welcome,
+    Footer, Forum, TopicList,
+    CommentList, AgentItems,
+    MapItems, BundleItems, RegistItems,
+    ContentItems, ProfileItems,LoginItems
+];

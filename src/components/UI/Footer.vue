@@ -68,7 +68,7 @@ footer {
 
 .footer-links__link {
     text-decoration: none;
-    color: white;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
     justify-content: space-around;
     font-size: 32px;
@@ -76,28 +76,29 @@ footer {
 }
 
 .footer-links__link:hover {
-    background-color: #00C65E;
+    background-color: #6a88ff;
 }
 
 .society-links {
     list-style: none;
     width: 522px;
+    
 }
 
 .society-links__link {
     text-decoration: none;
-    color: white;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
     justify-content: space-around;
     font-size: 32px;
 }
 
 .society-links__link:hover {
-    background-color: #00C65E;
+    background-color: #6a88ff;
 }
 
 .footer-link__title {
-    color: white;
+    color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
     font-size: 42px;
 }
@@ -126,7 +127,7 @@ footer {
     }
 
     .footer-links__link:hover {
-        background-color: #00C65E;
+        background-color: #0e3eff;
     }
 
     .society-links {
@@ -143,7 +144,7 @@ footer {
     }
 
     .society-links__link:hover {
-        background-color: #00C65E;
+        background-color: #0e3eff;
     }
 
     .footer-link__title {
