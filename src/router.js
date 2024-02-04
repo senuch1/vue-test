@@ -8,7 +8,7 @@ import ForumPage from "./components/ForumPage.vue"
 import ContentPage from "./components/ContentPage.vue"
 import LoginPage from "./components/LoginPage.vue"
 import ProfilePage from "./components/ProfilePage.vue"
-
+import ProfilesSkins from "./components/UI/ProfilesSkins.vue"
 export default createRouter({
   history: createWebHistory(),
   routes: [
@@ -20,7 +20,8 @@ export default createRouter({
     { path: '/content/maps', component: MapPage},
     { path: '/content/bundles', component: BundlePage},
     { path: '/forum', component: ForumPage},
-    { path: '/profile', component: ProfilePage},
+    { path: '/profile/', component: ProfilePage},
+    { path: '/profile/:username', component: ProfilesSkins},
   ],
   
 });

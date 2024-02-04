@@ -11,11 +11,13 @@ import BundleItems from "./BundleItems.vue";
 import RegistItems from "./RegistItems.vue";
 import ContentItems from "./ContentItems.vue";
 import ProfileItems from "./ProfileItems.vue";
+import ProfilesSkins from "./ProfilesSkins.vue";
 import LoginItems from "./LoginItems.vue";
 export default [
     Header, Items, Welcome,
     Footer, Forum, TopicList,
     CommentList, AgentItems,
     MapItems, BundleItems, RegistItems,
-    ContentItems, ProfileItems,LoginItems
+    ContentItems, ProfileItems,LoginItems,
+    ProfilesSkins,
 ];

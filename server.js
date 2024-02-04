@@ -23,7 +23,7 @@ const User = mongoose.model('User', {
 
 // Регистрация пользователя
 app.post('/register', async (req, res) => {
-    const {email, username, password } = req.body;
+    const { email, username, password } = req.body;
 
     // Хеширование пароля
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -41,9 +41,9 @@ app.post('/register', async (req, res) => {
 
 // Вход пользователя
 app.post('/login', async (req, res) => {
-    const {email, username, password } = req.body;
-    // Поиск пользователя по имени
-    const user = await User.findOne({email});
+    const { email, password } = req.body;
+    // Поиск пользователя по email
+    const user = await User.findOne({ email });
 
     if (user && await bcrypt.compare(password, user.password)) {
         // Создание токена при успешной аутентификации
@@ -51,6 +51,33 @@ app.post('/login', async (req, res) => {
         res.json({ success: true, token });
     } else {
         res.json({ success: false, error: 'Invalid email or password' });
+    }
+});
+
+// Эндпоинт для получения данных пользователя
+app.get('/profile/user', async (req, res) => {
+    try {
+        const authToken = req.headers.authorization;
+        if (!authToken) {
+            return res.status(401).json({ error: 'Unauthorized' });
+        }
+
+        const decodedToken = jwt.verify(authToken, 'secret_key');
+        const userEmail = decodedToken.email;
+
+        const user = await User.findOne({ email: userEmail });
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        res.json({
+            username: user.username,
+            email: user.email,
+        });
+    } catch (error) {
+        console.error('Error fetching user data:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 

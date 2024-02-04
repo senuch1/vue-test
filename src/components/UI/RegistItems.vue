@@ -9,17 +9,17 @@ export default {
         border: { type: String, required: true },
         background: { type: String, required: true },
         color: { type: String, required: true },
-        
+
     },
     data() {
         return {
             registerData: {
-                email:'',
+                email: '',
                 username: '',
                 password: '',
             },
             loginData: {
-                email:'',
+                email: '',
                 username: '',
                 password: '',
             },
@@ -31,12 +31,13 @@ export default {
         async register() {
             try {
                 const response = await axios.post('http://localhost:3000/register', this.registerData);
+
                 if (response.data.success) {
                     // Успешная регистрация
-                    alert('Регистрация прошла успешно!');
+                    const username = response.data.username;
+                    // Перенаправление на профиль с уникальным именем пользователя
+                    this.$router.push({ name: 'ProfilePage', params: { username } });
 
-                    // Перенаправление на страницу входа
-                    this.$router.push('/login'); // Можно использовать объект маршрута или строку с путем
                 } else {
                     alert('Ошибка при регистрации');
                 }
