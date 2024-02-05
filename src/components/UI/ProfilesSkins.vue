@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
+
 export default {
-    
     name: "ProfilesSkins",
     props: {
         width: { type: String },
@@ -11,7 +11,7 @@ export default {
     },
     data() {
         return {
-            user: {}, // Здесь будут храниться данные о пользователе
+            user: {},
         };
     },
     created() {
@@ -20,11 +20,14 @@ export default {
     methods: {
         async fetchUserProfile() {
             try {
-                // Получение данных о пользователе из сервера (замените URL на ваш)
-                const response = await axios.get(`http://localhost:3000/profile/${this.$route.params.username}`);
+                // Получение имени пользователя из URL
+                const username = this.$route.params.username;
+
+                // Отправка запроса на сервер для получения данных о пользователе
+                const response = await axios.get(`http://localhost:3000/profile/${username}`);
 
                 // Присвоение данных о пользователе переменной user
-                this.user = response.data.user;
+                this.user = response.data;
             } catch (error) {
                 console.error('Ошибка при получении данных о пользователе:', error);
             }

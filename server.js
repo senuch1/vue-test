@@ -5,6 +5,7 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -47,25 +48,21 @@ app.post('/login', async (req, res) => {
 
     if (user && await bcrypt.compare(password, user.password)) {
         // Создание токена при успешной аутентификации
-        const token = jwt.sign({ email }, 'secret_key', { expiresIn: '1h' });
-        res.json({ success: true, token });
+        const token = jwt.sign({ email, username: user.username }, 'secret_key', { expiresIn: '1h' });
+        res.json({ success: true, token, username: user.username });
     } else {
         res.json({ success: false, error: 'Invalid email or password' });
     }
 });
 
 // Эндпоинт для получения данных пользователя
-app.get('/profile/user', async (req, res) => {
+// ...
+app.get('/profile/:username', async (req, res) => {
     try {
-        const authToken = req.headers.authorization;
-        if (!authToken) {
-            return res.status(401).json({ error: 'Unauthorized' });
-        }
+        const username = req.params.username;
 
-        const decodedToken = jwt.verify(authToken, 'secret_key');
-        const userEmail = decodedToken.email;
-
-        const user = await User.findOne({ email: userEmail });
+        // Используйте username для поиска пользователя в базе данных
+        const user = await User.findOne({ username });
 
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
@@ -73,13 +70,53 @@ app.get('/profile/user', async (req, res) => {
 
         res.json({
             username: user.username,
+            _id: user._id,
             email: user.email,
         });
     } catch (error) {
-        console.error('Error fetching user data:', error);
+        console.error('Error fetching user profile:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+// ...
+
+const Topic = mongoose.model('Topic', {
+    title: String,
+    description: String,
+    username: String,
+});
+
+// Создание темы
+app.post('/create-topic', async (req, res) => {
+    try {
+        const { title, description } = req.body;
+        const username = 'user123'; // Получите имя пользователя из вашей системы аутентификации
+
+        const topic = new Topic({
+            title,
+            description,
+            username,
+        });
+
+        await topic.save();
+        res.json({ success: true });
+    } catch (error) {
+        console.error('Error creating topic:', error);
+        res.json({ success: false, error: error.message });
+    }
+});
+
+// Получение списка тем
+app.get('/get-topics', async (req, res) => {
+    try {
+        const topics = await Topic.find();
+        res.json({ topics });
+    } catch (error) {
+        console.error('Error fetching topics:', error);
+        res.json({ error: error.message });
+    }
+});
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

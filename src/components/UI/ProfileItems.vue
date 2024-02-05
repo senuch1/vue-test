@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+
 export default {
     name: "ProfileItems",
     props: {
@@ -22,41 +23,43 @@ export default {
     },
 
     methods: {
-        async fetchUserProfile() {
-            try {
-                // Получение данных о пользователе из сервера (замените URL на ваш)
-                const response = await axios.get(`http://localhost:3000/profile/${this.$route.params.username}`);
-
-                // Присвоение данных о пользователе переменной user
-                this.user = response.data.user;
-            } catch (error) {
-                console.error('Ошибка при получении данных о пользователе:', error);
-            }
+        fetchUserProfile() {
+            // Получение данных о пользователе из localStorage
+            this.user = {
+                username: localStorage.getItem('username') || '',
+                email: localStorage.getItem('email') || '',
+            };
         },
         logout() {
-            this.userData = null;
             localStorage.removeItem('authToken');
-        }
+            localStorage.removeItem('username');
+            localStorage.removeItem('email');
+            this.user = {};
+        },
     },
     created() {
         if (this.isLoggedIn) {
-            this.fetchUserData();
-            
+            this.fetchUserProfile();
         }
-        
     },
-    created() {
-        this.fetchUserProfile();
-    },
-}
+};
 </script>
 
 <template>
     <section class="profile-menu">
         <div v-if="isLoggedIn" class="profile-menu_logged">
-            <p>Ты ЗАРЕГАН</p>
-            <p>Username: {{ user }} </p>
-            <p>Email: {{ email }} </p>
+            <h4>профиль</h4>
+            <p>Ваш логин: {{ user.username }} </p>
+            <p>Ваша почта: {{ user.email }} </p>
+            <p>Ваше описание:</p>
+            <input type="text">
+            <button v-if="isLoggedIn" @click="">Сохранить</button>
+            <p>Ваш гендер: {{ selected }}</p>
+            <select v-model="selected">
+                <option>None</option>
+                <option>Female</option>
+                <option>Male</option>
+            </select>
             <a href="/profile"><button v-if="isLoggedIn" @click="logout">Выйти</button></a>
         </div>
         <div class="profile-menu_unlogged" v-if="!isLoggedIn">
@@ -73,7 +76,13 @@ export default {
     margin: 0 auto;
 }
 
-.profile-menu_logged {}
+.profile-menu_logged {
+    width: 520px;
+    height: 520px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 220px;
+}
 
 .profile-menu_unlogged {
     width: 520px;
@@ -81,7 +90,6 @@ export default {
     margin: 0 auto;
     text-align: center;
     margin-top: 220px;
-
 }
 
 .unlogged-registration {
@@ -89,7 +97,6 @@ export default {
     color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
-
 }
 
 .unlogged-registration:hover {

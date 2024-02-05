@@ -20,7 +20,7 @@ export default createRouter({
     { path: '/content/maps', component: MapPage},
     { path: '/content/bundles', component: BundlePage},
     { path: '/forum', component: ForumPage},
-    { path: '/profile/', component: ProfilePage},
+    { path: '/profile', component: ProfilePage},
     { path: '/profile/:username', component: ProfilesSkins},
   ],
   
