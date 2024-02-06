@@ -201,7 +201,7 @@ header {
         }
 
         header {
-            background-color: rgb(43, 43, 43);
+            background-color: #0e3eff;
             color: white;
             font-size: 30px;
             display: flex;
@@ -263,7 +263,7 @@ header {
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: #00C65E;
+            background-color: white;
             transform-origin: bottom right;
             transition: transform 0.5s ease-out;
         }

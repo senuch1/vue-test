@@ -1,4 +1,5 @@
 <script>
+
 export default {
     name: "AgentItems",
     props: {
@@ -31,44 +32,51 @@ export default {
 
 <template>
     <div class="back">
-        <a href="/content"><img src="https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-gauche-bleu.png" class="link-back" alt=""></a>
+        <a href="/content"><img src="https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-gauche-bleu.png"
+                class="link-back" alt=""></a>
     </div>
     <section class="agent-items">
-        
+
         <div class="agent-item" v-for="buddy in buddies.splice(0, 21)" :key="buddy.uuid">
-        
-            <img class="agent-item_img" :src="buddy.displayIcon" alt="">
+
+            <img class="agent-item_img" :src="buddy.fullPortrait" alt="">
             <p class="agent-item_title"> {{ buddy.displayName }}</p>
+            <p class="agent-item_description">{{buddy.description}}</p>
+
         </div>
+
     </section>
 </template>
 
 <style scoped>
-.back{
+.back {
     width: 1169px;
     margin: 0 auto;
 }
-.link-back{
+
+.link-back {
     width: 148px;
     height: 148px;
     margin: 0 auto;
 
 }
+
 .agent-items {
     padding-top: 20px;
     width: 1169px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 2fr);
     grid-template-rows: repeat(7, 1fr);
     grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-row-gap: 62px;
 
 }
 
 .agent-item {
     transition: 1s;
     text-align: center;
+    
 }
 
 .agent-item:hover {
@@ -90,6 +98,13 @@ export default {
     color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
     font-size: 26px;
+}
+.agent-item_description{
+    color: #292929;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -118,5 +133,4 @@ export default {
         grid-row-gap: 0px;
 
     }
-}
-</style>
+}</style>

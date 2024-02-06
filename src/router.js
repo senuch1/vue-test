@@ -9,6 +9,7 @@ import ContentPage from "./components/ContentPage.vue"
 import LoginPage from "./components/LoginPage.vue"
 import ProfilePage from "./components/ProfilePage.vue"
 import ProfilesSkins from "./components/UI/ProfilesSkins.vue"
+
 export default createRouter({
   history: createWebHistory(),
   routes: [

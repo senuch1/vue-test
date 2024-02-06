@@ -68,6 +68,10 @@ export default {
                 console.error('Ошибка при получении списка тем:', error);
             }
         },
+        showComments(topic) {
+            // Перенаправляем на маршрут для CommentList.vue
+            router.push({ name: 'CommentList', params: { topicId: topic.id } });
+        }
     },
     created() {
         // Проверяем, авторизован ли пользователь

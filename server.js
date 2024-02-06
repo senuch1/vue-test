@@ -4,10 +4,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
-
+const multer = require('multer');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
+const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -20,6 +21,20 @@ const User = mongoose.model('User', {
     email: String,
     username: String,
     password: String,
+});
+
+// Модель темы форума
+const Topic = mongoose.model('Topic', {
+    title: String,
+    description: String,
+    username: String,
+});
+
+// Модель комментария
+const Comment = mongoose.model('Comment', {
+    topicId: String,
+    text: String,
+    username: String,
 });
 
 // Регистрация пользователя
@@ -55,37 +70,6 @@ app.post('/login', async (req, res) => {
     }
 });
 
-// Эндпоинт для получения данных пользователя
-// ...
-app.get('/profile/:username', async (req, res) => {
-    try {
-        const username = req.params.username;
-
-        // Используйте username для поиска пользователя в базе данных
-        const user = await User.findOne({ username });
-
-        if (!user) {
-            return res.status(404).json({ error: 'User not found' });
-        }
-
-        res.json({
-            username: user.username,
-            _id: user._id,
-            email: user.email,
-        });
-    } catch (error) {
-        console.error('Error fetching user profile:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-});
-// ...
-
-const Topic = mongoose.model('Topic', {
-    title: String,
-    description: String,
-    username: String,
-});
-
 // Создание темы
 app.post('/create-topic', async (req, res) => {
     try {
@@ -116,6 +100,8 @@ app.get('/get-topics', async (req, res) => {
         res.json({ error: error.message });
     }
 });
+
+
 
 
 app.listen(port, () => {
