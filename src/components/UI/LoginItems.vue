@@ -69,16 +69,18 @@ export default {
 <template>
   <section class="login-items">
     <h3 class="title">Авторизация</h3>
-    <div v-if="!isLoggedIn">
+    <div v-if="!isLoggedIn" class="login-menu">
       <form @submit.prevent="login">
-        <input type="email" v-model="loginData.email" required placeholder="email">
-        <input type="password" v-model="loginData.password" required placeholder="password">
-        <button  type="submit">Войти</button>
+
+        <input class="login-input" type="email" v-model="loginData.email" required placeholder="email">
+        <br>
+        <input class="login-input" type="password" v-model="loginData.password" required placeholder="password">
+        <br>  
+        <button class="login-btn" type="submit">Войти</button>
       </form>
     </div>
     <div v-else>
       <h2>Вы уже авторизованы</h2>
-
     </div>
   </section>
 </template>
@@ -93,5 +95,27 @@ export default {
   color: #0e3eff;
   font-size: 82px;
   font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+.login-menu{
+  text-align: center;
+}
+.login-input{
+  margin-top: 30px;
+  width: 300px;
+  height: 42px;
+}
+.login-input::placeholder{
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+.login-btn{
+  height: 42px;
+  width: 82px;
+  margin-top: 30px;
+  background-color: #0e3eff;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  color: white;
 }
 </style>

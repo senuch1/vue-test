@@ -32,10 +32,12 @@ export default {
   <section class="items">
     <div class="">
       <h2 class="items-title">Трейлер</h2>
-      <iframe class="items-video" width="880" height="505"
-        src="https://www.youtube.com/embed/k6m5wKe0yfA?si=tw8z2EzVEA2C4j9d" title="video player" frameborder="0"
+
+      <iframe width="880" height="505" src="https://www.youtube.com/embed/EggQFuY20Bw?si=sjXEvb7ouMo3ry-_"
+        title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
+        allowfullscreen class="items-video"></iframe>
+
     </div>
     <div class="slider">
       <h2 class="slider-title">Творчество</h2>
@@ -128,7 +130,8 @@ button:hover {
 
 .skins-title {
   font-size: 146px;
-  color: #0e3eff;;
+  color: #0e3eff;
+  ;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -138,7 +141,8 @@ button:hover {
 }
 
 .skin-item_title {
-  color: #0e3eff;;
+  color: #0e3eff;
+  ;
   font-family: 'Montserrat', sans-serif;
   font-size: 26px;
 }
@@ -160,7 +164,8 @@ button:hover {
 
   .items-title {
     font-size: 16px;
-    color: #0e3eff;;
+    color: #0e3eff;
+    ;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -319,5 +324,4 @@ button:hover {
     font-family: 'Montserrat', sans-serif;
     font-size: 26px;
   }
-}
-</style>
+}</style>

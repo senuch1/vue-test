@@ -62,12 +62,15 @@ export default {
 <template>
     <section class="regist-items">
         <h3 class="title">Регистрация</h3>
-        <div v-if="!isLoggedIn">
+        <div class="regist-menu" v-if="!isLoggedIn">
             <form @submit.prevent="register">
-                <input type="name" v-model="registerData.username" required placeholder="Username">
-                <input type="email" v-model="registerData.email" required placeholder="email">
-                <input type="password" v-model="registerData.password" required placeholder="password">
-                <button type="submit">Зарегистрироваться</button>
+                <input class="regist-input" type="name" v-model="registerData.username" required placeholder="Username">
+                <br>
+                <input class="regist-input" type="email" v-model="registerData.email" required placeholder="email">
+                <br>
+                <input class="regist-input" type="password" v-model="registerData.password" required placeholder="password">
+                <br>
+                <button class="regist-btn" type="submit">Зарегистрироваться</button>
             </form>
         </div>
     </section>
@@ -83,5 +86,31 @@ export default {
     color: #0e3eff;
     font-size: 82px;
     font-family: 'Montserrat', sans-serif;
+}
+
+.regist-menu {
+    text-align: center;
+}
+
+
+.regist-input {
+    margin-top: 30px;
+    width: 300px;
+    height: 42px;
+}
+
+.regist-input::placeholder {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.regist-btn {
+    height: 42px;
+    width: 182px;
+    margin-top: 30px;
+    background-color: #0e3eff;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    color: white;
 }
 </style>

@@ -1,5 +1,4 @@
 <script>
-import axios from 'axios';
 
 export default {
     name: "ProfileItems",
@@ -12,6 +11,7 @@ export default {
     data() {
         return {
             user: {}, // Здесь будут храниться данные о пользователе
+            email:{},
         };
     },
     computed: {
@@ -48,14 +48,14 @@ export default {
 <template>
     <section class="profile-menu">
         <div v-if="isLoggedIn" class="profile-menu_logged">
-            <h4>профиль</h4>
-            <p>Ваш логин: {{ user.username }} </p>
-            <p>Ваша почта: {{ user.email }} </p>
-            <p>Ваше описание:</p>
-            <input type="text">
-            <button v-if="isLoggedIn" @click="">Сохранить</button>
-            <p>Ваш гендер: {{ selected }}</p>
-            <select v-model="selected">
+            <h4 class="profile-menu_title">профиль</h4>
+            <p class="profile-menu_text">Ваш логин: {{ user.username }} </p>
+            <p class="profile-menu_text">Ваша почта: {{ user.email }} </p>
+            <p class="profile-menu_text">Ваше описание:</p>
+            <input class="profile-menu_text" type="text">
+            <button class="profile-menu_text" v-if="isLoggedIn" @click="">Сохранить</button>
+            <p class="profile-menu_text">Ваш гендер: {{ selected }}</p>
+            <select class="profile-menu_text" v-model="selected">
                 <option>None</option>
                 <option>Female</option>
                 <option>Male</option>
@@ -116,5 +116,17 @@ export default {
     color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
+}
+.profile-menu_title{
+    color: #0e3eff;
+    font-size: 82px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+.profile-menu_text{
+    color: #202020;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
 }
 </style>

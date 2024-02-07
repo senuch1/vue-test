@@ -4,11 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const multer = require('multer');
-const path = require('path');
+
 const app = express();
 const port = process.env.PORT || 3000;
-const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -67,6 +65,29 @@ app.post('/login', async (req, res) => {
         res.json({ success: true, token, username: user.username });
     } else {
         res.json({ success: false, error: 'Invalid email or password' });
+    }
+});
+
+// Эндпоинт для получения данных пользователя
+app.get('/profile/:username', async (req, res) => {
+    try {
+        const username = req.params.username;
+
+        // Используйте username для поиска пользователя в базе данных
+        const user = await User.findOne({ username });
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        res.json({
+            username: user.username,
+            _id: user._id,
+            email: user.email,
+        });
+    } catch (error) {
+        console.error('Error fetching user profile:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 

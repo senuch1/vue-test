@@ -68,7 +68,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 2fr);
     grid-template-rows: repeat(7, 1fr);
-    grid-column-gap: 0px;
+    grid-column-gap: 110px;
     grid-row-gap: 62px;
 
 }
@@ -102,7 +102,7 @@ export default {
 .agent-item_description{
     color: #292929;
     font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
+    font-size: 18px;
 
 
 }
