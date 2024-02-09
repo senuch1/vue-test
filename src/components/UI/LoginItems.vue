@@ -117,5 +117,6 @@ export default {
   font-family: 'Montserrat', sans-serif;
   border: none;
   color: white;
+  cursor: pointer;
 }
 </style>

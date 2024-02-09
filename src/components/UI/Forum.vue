@@ -13,13 +13,9 @@
         <div class="topic-theme">
             <div class="theme" v-for="topic in topics" :key="topic.id">
                 <div>
-                    <p><strong>{{ topic.title }}</strong></p>
-                    <p>{{ topic.description }}</p>
-                    <p>Автор: {{ topic.username }}</p>
-                </div>
-                <div class="theme-btn">
-                    <button class="theme-comment_btn" @click="showComments(topic)">Комментарии</button>
-                    <button class="theme-delete_btn" @click="deleteTopic(topic.id)">Удалить тему</button>
+                    <p class="theme-text_title"><strong>{{ topic.title }}</strong></p>
+                    <p class="theme-text_description">{{ topic.description }}</p>
+                    <p class="theme-text_author">Автор: {{ topic.username }}</p>
                 </div>
             </div>
         </div>
@@ -38,28 +34,31 @@ export default {
                 description: '',
             },
             isLoggedIn: false,
-            topics: [], // Список тем
+            topics: [],
         };
     },
     methods: {
         async createTopic() {
             try {
-                const response = await axios.post('http://localhost:3000/create-topic', this.newTopic);
+                const response = await axios.post('http://localhost:3000/create-topic', this.newTopic, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('authToken')}` // Добавляем токен в заголовок запроса
+                    }
+                });
 
                 if (response.data.success) {
-                    // Очищаем поля после успешного создания темы
                     this.newTopic.title = '';
                     this.newTopic.description = '';
-
-                    // Обновляем список тем
                     this.fetchTopics();
                 } else {
                     alert('Ошибка при создании темы');
+                    console.log('Ошибка при создании темы:', error);
                 }
             } catch (error) {
                 console.error('Ошибка при создании темы:', error);
             }
         },
+
         async fetchTopics() {
             try {
                 const response = await axios.get('http://localhost:3000/get-topics');
@@ -68,17 +67,10 @@ export default {
                 console.error('Ошибка при получении списка тем:', error);
             }
         },
-        showComments(topic) {
-            // Перенаправляем на маршрут для CommentList.vue
-            router.push({ name: 'CommentList', params: { topicId: topic.id } });
-        }
     },
     created() {
-        // Проверяем, авторизован ли пользователь
         const authToken = localStorage.getItem('authToken');
         this.isLoggedIn = !!authToken;
-
-        // Загружаем список тем при создании компонента
         this.fetchTopics();
     },
 };
@@ -108,7 +100,6 @@ export default {
     width: 200px;
     height: 62px;
     border: #0e3eff 1px solid;
-
     color: #6a88ff;
 }
 
@@ -148,20 +139,21 @@ export default {
     color: #0e3eff;
     font-family: 'Montserrat', sans-serif;
     text-align: end;
-
 }
 
 .topic-theme {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 1em;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 3em;
+    grid-row-gap: 3em;
 }
 
 .theme {
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 400px;
     border: 1px #0e3eff solid;
+    text-align: center;
 }
 
 .theme-title {
@@ -186,6 +178,24 @@ export default {
     border: none;
     color: rgb(43, 43, 43);
     cursor: pointer;
+}
+
+.theme-text_title{
+    font-family: 'Montserrat', sans-serif;
+    color: #0e3eff;
+    font-size: 32px;
+}
+
+.theme-text_description{
+    font-family: 'Montserrat', sans-serif;
+    color: #0e3eff;
+    font-size: 24px;
+}
+
+.theme-text_author{
+    font-family: 'Montserrat', sans-serif;
+    color: #0e3eff;
+    font-size: 24px;
 }
 
 @media only screen and (max-width: 768px) {

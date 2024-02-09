@@ -1,5 +1,5 @@
 <script>
-
+import axios from 'axios';
 export default {
     name: "ProfileItems",
     props: {
@@ -11,7 +11,7 @@ export default {
     data() {
         return {
             user: {}, // Здесь будут храниться данные о пользователе
-            email:{},
+            email: {},
         };
     },
     computed: {
@@ -51,16 +51,8 @@ export default {
             <h4 class="profile-menu_title">профиль</h4>
             <p class="profile-menu_text">Ваш логин: {{ user.username }} </p>
             <p class="profile-menu_text">Ваша почта: {{ user.email }} </p>
-            <p class="profile-menu_text">Ваше описание:</p>
-            <input class="profile-menu_text" type="text">
-            <button class="profile-menu_text" v-if="isLoggedIn" @click="">Сохранить</button>
-            <p class="profile-menu_text">Ваш гендер: {{ selected }}</p>
-            <select class="profile-menu_text" v-model="selected">
-                <option>None</option>
-                <option>Female</option>
-                <option>Male</option>
-            </select>
-            <a href="/profile"><button v-if="isLoggedIn" @click="logout">Выйти</button></a>
+            <a href="/profile"><button v-if="isLoggedIn" class="profile-menu_btn" @click="logout">Выйти из
+                    профиля</button></a>
         </div>
         <div class="profile-menu_unlogged" v-if="!isLoggedIn">
             <p><a class="unlogged-registration" href="/registration">Регистрация</a></p>
@@ -117,16 +109,28 @@ export default {
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
 }
-.profile-menu_title{
+
+.profile-menu_title {
     color: #0e3eff;
     font-size: 82px;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
-.profile-menu_text{
+
+.profile-menu_text {
     color: #202020;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
-</style>
+
+.profile-menu_btn {
+    height: 42px;
+    width: 82px;
+    margin-top: 30px;
+    background-color: #0e3eff;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    color: white;
+    cursor: pointer;
+}</style>
