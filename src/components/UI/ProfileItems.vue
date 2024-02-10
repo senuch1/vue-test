@@ -133,4 +133,28 @@ export default {
     border: none;
     color: white;
     cursor: pointer;
-}</style>
+}
+
+@media only screen and (max-width: 768px) {
+    .profile-menu {
+        width: 768px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .profile-menu {
+        width: 320px;
+        margin: 0 auto;
+    }
+
+    .profile-menu_logged {
+        width: 0px;
+        margin: 0;
+    }
+
+    .profile-menu_title {
+        font-size: 32px;
+    }
+}
+</style>

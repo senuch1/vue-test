@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/abc', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://127.0.0.1:27017/abc', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const User = mongoose.model('User', {
     email: String,

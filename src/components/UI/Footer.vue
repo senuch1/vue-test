@@ -17,9 +17,9 @@ export default {
                 <ul class="footer-links">
                     <p class="footer-link__title">На форуме</p>
                     <li><a class="footer-links__link" href="/main">Главная</a></li>
-                    <li><a class="footer-links__link" href="/agents">Агенты</a></li>
-                    <li><a class="footer-links__link" href="/maps">Карты</a></li>
-                    <li><a class="footer-links__link" href="/bundles">Коллекции</a></li>
+                    <li><a class="footer-links__link" href="/content/agents">Агенты</a></li>
+                    <li><a class="footer-links__link" href="/content/maps">Карты</a></li>
+                    <li><a class="footer-links__link" href="/content/bundles">Коллекции</a></li>
                 </ul>
             </div>
             <div class="footer-society">
@@ -109,7 +109,8 @@ footer {
         display: flex;
         width: 768px;
         margin: 0 auto;
-        display: inline-grid
+        display: inline-grid;
+        background-color:#0e3eff;
     }
 
     .footer-links {
